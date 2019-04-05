@@ -12,14 +12,18 @@ class Hog extends Component{
     }));
     }
 
+    hide = (e) => {
+      e.target.parentNode.classList.add("hide-me")
+    }
+
   render(){
     return (
-      <div className ='ui eight wide' key={this.props.hog.name}>
+      <div className ='ui eight wide pigTile' key={this.props.hog.name}>
         <img src = {this.props.imgPrep(this.props.hog.name)} alt = {this.props.hog.name}/>
-        <p> {this.props.hog.name}</p>
+        <h3 className="smallHeader"> {this.props.hog.name}</h3>
         <button onClick={this.handleClick}> Show Details </button>
         {this.state.clicked ? <Extra hog={this.props.hog}/> : null}
-
+        <button onClick={this.hide}> Hide This Pig</button>
       </div>
     )
   }
@@ -29,9 +33,9 @@ class Hog extends Component{
 const Extra = (props) => {
   return (
     <div>
-      <p> Speciality: {props.hog.specialty}</p>
-      <p> Weight: {props.hog.weight}</p>
-      <p> Highest Medals Achieved{props.hog['heighest medal acheived']}</p>
+      <p className="normalText achievementText"> Speciality: {props.hog.specialty}</p>
+      <p className="normalText"> Weight: {props.hog.weight}</p>
+      <p className="normalText"> Highest Medals Achieved{props.hog['heighest medal acheived']}</p>
     </div>
   )
 }

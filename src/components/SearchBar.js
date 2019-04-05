@@ -20,7 +20,7 @@ export default class SearchBar extends Component {
         <option value="name">Name</option>
         </select>
         <div>
-        <label>Filter By Greasiness </label>
+        <label>Greased or Not ? </label>
         <input id="grease-filter" type='checkbox' onChange={this.props.handleChecked}/>
         </div>
       </div>
