@@ -6,7 +6,7 @@ import SearchBar from './SearchBar.js'
 
 import hogs from '../porkers_data';
 
-class App extends Component {
+export default class App extends Component {
 constructor(props){
   super(props)
     this.state={
@@ -14,7 +14,6 @@ constructor(props){
       greased: false
   }
 }
-
 
 handleChange =(e) => {
   this.setState({
@@ -29,16 +28,21 @@ handleChecked = (e) => {
 }
 
   render() {
-
     return (
       <div className="App">
-        <SearchBar handleChange={this.handleChange} handleChecked={this.handleChecked}/>
-        < Nav handleChange={this.handleChange}/>
-      <HogTiles hogs={hogs} filter ={this.state.filter} greased ={this.state.greased}/>
-
-      </div>
+        <SearchBar
+          handleChange={this.handleChange}
+          handleChecked={this.handleChecked}
+        />
+        < Nav
+          handleChange={this.handleChange}
+        />
+      <HogTiles
+        hogs={hogs}
+        filter ={this.state.filter}
+        greased ={this.state.greased}
+      />
+    </div>
     )
   }
 }
-
-export default App;

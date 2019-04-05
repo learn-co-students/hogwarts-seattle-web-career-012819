@@ -2,26 +2,23 @@ import React, {Component} from 'react'
 
 export default class SearchBar extends Component {
 
-  state={
-    searchText: ''
-  }
-
-  handleChange =(e) => {
-    this.setState({
-      searchText: e.target.value
-    })
-  }
-
   render(){
     return(
       <div>
-        <select type='text' placeholder="search" onChange={this.props.handleChange}>
-        <option value="weight"> Weight</option>
-        <option value="name">Name</option>
+        <select
+          type='text'
+          placeholder="search"
+          onChange={this.props.handleChange}>
+          <option value="weight"> Weight</option>
+          <option value="name">Name</option>
         </select>
         <div>
-        <label>Greased or Not ? </label>
-        <input id="grease-filter" type='checkbox' onChange={this.props.handleChecked}/>
+          <label> Greased or Not ? </label>
+          <input
+            id="grease-filter"
+            type='checkbox'
+            onChange={this.props.handleChecked}
+          />
         </div>
       </div>
     )

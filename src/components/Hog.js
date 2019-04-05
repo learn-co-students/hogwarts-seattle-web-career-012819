@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-class Hog extends Component{
+export default class Hog extends Component{
 
     state={
       clicked: false
@@ -20,9 +20,13 @@ class Hog extends Component{
     return (
       <div className ='ui eight wide pigTile' key={this.props.hog.name}>
         <img src = {this.props.imgPrep(this.props.hog.name)} alt = {this.props.hog.name}/>
+
         <h3 className="smallHeader"> {this.props.hog.name}</h3>
+
         <button onClick={this.handleClick}> Show Details </button>
+
         {this.state.clicked ? <Extra hog={this.props.hog}/> : null}
+
         <button onClick={this.hide}> Hide This Pig</button>
       </div>
     )
@@ -39,7 +43,3 @@ const Extra = (props) => {
     </div>
   )
 }
-
-
-
-export default Hog
