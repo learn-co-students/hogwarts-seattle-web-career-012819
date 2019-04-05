@@ -1,4 +1,4 @@
-const hogs = [
+let hogs = [
   {
     name: 'Mudblood',
     specialty: 'Mediocre magic',
