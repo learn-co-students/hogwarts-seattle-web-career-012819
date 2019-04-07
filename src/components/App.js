@@ -31,18 +31,29 @@ class App extends Component {
       this.setState({
         filteredHog: filteredArray
       })
+
     }
     else{
       this.setState({
         filteredHog: this.state.allHogs
       })
     }
+    return this.state.filteredHog
+  }
 
-    if(document.getElementById('byName').value === 'byName'){
+  handleSorting = (ev)=>{
+    console.log(ev.target.value)
+    console.log(this.state.filteredHog)
+    this.setState({
+      filteredHog: this.state.filteredHog
+    })
+    if(ev.target.value === 'byName'){
       this.state.filteredHog.sort((a, b) => (a.name > b.name) ? 1 : -1)
+      this.handleGreased()
     }
-    else if(document.getElementById('byWeight').value === 'byWeight'){
+    else if(ev.target.value === 'byWeight'){
       this.state.filteredHog.sort((a, b) => (a.weight > b.weight) ? 1 : -1)
+      this.handleGreased()
     }
   }
 
@@ -52,7 +63,7 @@ class App extends Component {
       <div className="App ">
         < Nav />
       <label><strong>Filter: </strong> </label>
-      <select onChange={this.handleGreased}>
+      <select onChange={this.handleSorting}>
         <option value='showAll'>Sort</option>
         <option value='byName' id='byName'>By Name</option>
         <option value='byWeight' id='byWeight'>By Weight</option>
